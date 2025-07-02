@@ -3,144 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>50 Cent - Curtis James Jackson III</title>
+    <title>50 Cent | Official Bio</title>
+    <meta name="description" content="Grammy-winning rapper, actor, entrepreneur, and entertainment mogul">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-gold: #FFD700;
+            --secondary-gold: #FFA500;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 215, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            color: #fff;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 1200px;
-        }
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
-            border: 4px solid #FFD700;
+        }        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-gold) 0%, transparent 70%);
+            opacity: 0.1;
+            top: -250px;
+            right: -250px;
+            animation: float 20s ease-in-out infinite;
         }
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(180deg); }
         }
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.2;
         }
-        .tagline {
+        
+        .hero-text .subtitle {
             font-size: 1.5rem;
-            color: #FFD700;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
+        }        
+        .hero-image {
+            position: relative;
         }
-        .bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ddd;
-            max-width: 800px;
-            margin: 0 auto 3rem;
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--border-color);
         }
+        
+        /* Stats Section */
         .stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+            padding: 5rem 0;
+            background: var(--darker-bg);
         }
-        .stat-box {
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
             text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 10px;
-            border: 1px solid #FFD700;
-            min-width: 150px;
+            transition: transform 0.3s, border-color 0.3s;
         }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }        
         .stat-number {
-            font-size: 2.5rem;
-            color: #FFD700;
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
+        
         .stat-label {
-            font-size: 1rem;
-            color: #ccc;
-            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
-        .links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        
+        /* Tools Section */
+        .tools {
+            padding: 5rem 0;
+            background: var(--dark-bg);
         }
-        .link-btn {
-            padding: 1rem 2rem;
-            background: #FFD700;
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }        
+        .tool-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
             transition: all 0.3s;
+            text-decoration: none;
+            display: block;
         }
-        .link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
         }
-        .link-btn.primary {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+        
+        .tool-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
         }
+        
+        .tool-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .tool-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }        
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background: var(--darker-bg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .footer-content {
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .profile-image { width: 250px; height: 250px; }
-            .stats { gap: 20px; }
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .hero-image img {
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+            }
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="profile-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/50_Cent_AKA_Curtis_Jackson_%28cropped%29.jpg/800px-50_Cent_AKA_Curtis_Jackson_%28cropped%29.jpg" alt="50 Cent">
-        </div>
-        <h1>50 CENT</h1>
-        <p class="tagline">Curtis James Jackson III</p>
-        <p class="bio">
-            Curtis "50 Cent" Jackson is an American rapper, actor, and entrepreneur who rose from the streets of Queens to become one of hip-hop's most successful artists. 
-            Known for his gritty lyrics and business acumen, 50 Cent transformed his street credibility into a multimedia empire. 
-            His debut album "Get Rich or Die Tryin'" became one of the best-selling rap albums of all time, while his business ventures span from music to television production, 
-            including the hit series "Power."
-        </p>
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-number">30M+</div>
-                <div class="stat-label">Albums Sold</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">13</div>
-                <div class="stat-label">Billboard Awards</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">$40M</div>
-                <div class="stat-label">Net Worth</div>
+</head><body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">50 Cent</a>
+            <div class="nav-links">
+                <a href="#stats">Stats</a>
+                <a href="#tools">Tools</a>
+                <a href="https://studio.50cent.bio">Studio</a>
             </div>
         </div>
-        <div class="links">
-            <a href="https://studio.50cent.bio" class="link-btn primary">🎵 Studio Portal</a>
-            <a href="https://mcp.50cent.bio" class="link-btn">🤖 MCP Tools</a>
-            <a href="https://api.50cent.bio" class="link-btn">📡 API</a>
-            <a href="https://app.50cent.bio" class="link-btn">📱 App</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>50 Cent</h1>
+                    <p class="subtitle">Grammy-winning rapper, actor, entrepreneur, and entertainment mogul</p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/50_Cent_in_2018.jpg" alt="50 Cent" onerror="this.src='https://via.placeholder.com/500x500/1a1a1a/FFD700?text=50C'">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">30M+</div>
+                    <div class="stat-label">Albums Sold</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Film Appearances</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Grammy Awards</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years in Industry</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="section-title">Interactive Tools</h2>
+            <div class="tools-grid">
+                <a href="https://studio.50cent.bio" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-palette"></i></div>
+                    <div class="tool-title">AI Studio</div>
+                    <div class="tool-description">Interact with AI-powered content about 50 Cent</div>
+                </a>
+                <a href="https://mcp.50cent.bio" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-tools"></i></div>
+                    <div class="tool-title">MCP Tools</div>
+                    <div class="tool-description">Advanced model context protocol tools</div>
+                </a>
+                <a href="https://api.50cent.bio" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-code"></i></div>
+                    <div class="tool-title">API Access</div>
+                    <div class="tool-description">Developer API for 50 Cent data</div>
+                </a>
+                <a href="https://app.50cent.bio" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="tool-title">Mobile App</div>
+                    <div class="tool-description">Access on-the-go with our mobile application</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 50 Cent. All rights reserved.</p>
+                <p>Powered by <a href="https://worklocal.studio" style="color: var(--primary-gold);">WorkLocal Studio</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
